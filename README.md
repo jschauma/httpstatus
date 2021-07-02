@@ -16,7 +16,7 @@ To install, just copy the man page somewhere in your
 `MANPATH`, for example:
 
 ```
-sudo install -c -m 444 httpcodes.7 /usr/local/man/man7/httpcodes.7
+sudo install -c -m 444 httpstatus.7 /usr/local/man/man7/httpstatus.7
 ```
 
 See also
