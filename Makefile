@@ -11,6 +11,7 @@ help:
 	@echo "             e.g., 'man http:404'."
 
 install:
+	mkdir -p ${PREFIX}/share/man/man7/
 	install -c -m 444 ${NAME}.7 ${PREFIX}/share/man/man7/${NAME}.7
 
 install-all: install
