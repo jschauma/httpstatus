@@ -22,6 +22,6 @@ sudo install -c -m 444 httpstatus.7 /usr/local/man/man7/httpstatus.7
 See also
 ========
 
-[Wikipedia List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
-[IANA list of HTTP status codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
-[Mozilla Developer Network: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+* [Wikipedia List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+* [IANA list of HTTP status codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+* [Mozilla Developer Network: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
