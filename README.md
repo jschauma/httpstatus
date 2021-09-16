@@ -12,6 +12,10 @@ I know, I thought so, too.  So here's a manual page
 that provides a terse summary of the standardized HTTP
 status codes as derived from the various RFCs.
 
+If you're too lazy even to install the manual page,
+[here's a
+PDF](https://raw.githubusercontent.com/jschauma/httpstatus/main/httpstatus.7.pdf).
+
 ## Installation
 
 You can install the manual page by running `make
