@@ -10,6 +10,7 @@ help:
 	@echo "             then symlink each http status code so that you can run"
 	@echo "             e.g., 'man http:404'."
 	@echo "txt          generate a text version of the manual page"
+	@echo "pdf          generate a PDF version of the manual page"
 
 install:
 	mkdir -p ${PREFIX}/share/man/man7/
@@ -24,3 +25,15 @@ txt: ${NAME}.7.txt
 
 ${NAME}.7.txt: ${NAME}.7
 	nroff -man $? | col -b >$@
+
+pdf: ${NAME}.7.pdf
+
+${NAME}.7.pdf: ${NAME}.7.ps
+	ps2pdf $?
+	rm $?
+
+${NAME}.7.ps: ${NAME}.7
+	groff -man -Tps $? > $@
+
+clean:
+	rm -f ${NAME}.7.txt ${NAME}.7.pdf
