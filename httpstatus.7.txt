@@ -61,7 +61,7 @@ DESCRIPTION
 	 from that of the origin servers 200 (OK) response by a transforming
 	 proxy.
 
-     204 Content
+     204 No Content
 	 The server has successfully fulfilled the request; there is no addi
 	 tional content to send in the response payload body.
 
@@ -338,7 +338,7 @@ NON STANDARD HTTP STATUS CODES
      440 Login Timeout (Microsoft IIS)
 	 The clients session has expired and must log in again.
 
-     444 Response (nginx)
+     444 No Response (nginx)
 	 Used by the ngx_http_rewrite_module to instruct the server to close
 	 the connection without sending a response header.
 
@@ -529,7 +529,7 @@ NON STANDARD HTTP STATUS CODES
 	 An error occurred negotiating a secure TLS connection with the Edgio
 	 global POP.
 
-     547 Edgio Global POP HTTP Response (Edgio)
+     547 Edgio Global POP No HTTP Response (Edgio)
 	 No HTTP response from the global POP.
 
      548 Invalid Response (Akamai EAA)
