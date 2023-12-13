@@ -44,6 +44,14 @@ This will create symlinks for each status code to
 See also
 ========
 
+Standardized HTTP status codes:
+
 * [Wikipedia List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 * [IANA list of HTTP status codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
 * [Mozilla Developer Network: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+Unofficial HTTP status codes:
+
+* [Akamai Enterprise Application Access Status Codes](https://techdocs.akamai.com/eaa/docs/app-response-codes-login-events-err)
+* [Edgio Status Codes](https://docs.edg.io/guides/v4/status_codes)
+* [Shopify API response status and error codes](https://shopify.dev/docs/api/usage/response-codes)

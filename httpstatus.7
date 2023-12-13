@@ -15,7 +15,7 @@
 .\" the internet.
 .\"
 .\" Jan Schaumann <jschauma@netmeister.org>, July 2021
-.Dd July 02, 2021
+.Dd December 12, 2023
 .Dt httpstatus 7
 .Os
 .Sh NAME
@@ -323,6 +323,236 @@ access.
 In addition to the above, several HTTP server or proxy
 implementations include custom status codes,
 particularly in the 4xx and 5xx classes.
+.Bl -tag -width XX
+.It 000 (AWS ELB)
+Used by AWS Elastic Load Balancing with HTTP/2 GOAWAY
+frame if the compressed length of any of the headers
+exceeds 8K bytes or if more than 10K requests are
+served through one connection exceeds 10,000.
+.It 000 (curl)
+Used by
+.Xr curl 1
+to indicate a failed execution.
+.It 000 Client-Side Abort (Akamai LDS)
+Used by Akamai Log Delivery Services if a download was
+terminated by the end-user before the edge server is
+able to send back the response header.
+.It 000 (Looker Studio)
+No HTTP code was received.
+.It 218 This is fine (Apache httpd)
+A catch-all error condition displayed instead of a 4xx
+or 5xx error, allowing the passage of message bodies
+through the server when the
+.Ar ProxyErrorOverride
+setting is enabled.
+.It 299 Deprecated (Linode)
+The request was successful, but involved a deprecated
+endpoint.
+.It 419 Page Expired (Laravel)
+A CSRF Token is missing, expired, or cannot be verified.
+.It 430 Shopify Security Rejection (Shopify)
+The request was deemed malicious.
+.It 440 Login Time-out (Microsoft IIS)
+The client's session has expired and must log in again.
+.It 444 No Response (nginx)
+Used by the ngx_http_rewrite_module to instruct
+the server to close the connection without sending a
+response header.
+.It 449 Retry With Status Code (Microsoft IIS)
+The request cannot be satisfied because insufficient
+information was provided by the client.
+.It 450 Blocked by Windows Parental Controls (Microsoft)
+Windows Parental Controls are turned on and are
+blocking access to the requested webpage.
+.It 451 Redirect (Microsoft Exchange)
+Used by Microsoft Exchange ActiveSync to indicate that
+the client is attempting to connect to the wrong
+server, or if there is a more efficient server to use
+to reach the user's mailbox
+.It 460 (AWS ELB)
+The client closed the connection with the load balancer
+before the idle timeout period elapsed.
+.It 463 (AWS ELB)
+The load balancer received an X-Forwarded-For request
+header with too many IP addresses.
+.It 464 (AWS ELB)
+Incompatible protocol versions between the client and
+the origin server.
+.It 492 User Access Forbidden (Akamai EAA)
+The client is not authorized to access the application.
+.It 493 Unsupported Browser (Akamai EAA)
+The client did not send a Server Name Identification
+(SNI) in the TLS handshake.
+.It 494 Request Header Too Large (nginx)
+The client sent too large a request or too long a
+header line.
+.It 494 Request Header Or Cookie Too Large (Akamai EAA)
+An HTTP Request Header is bigger than the configured
+buffer value.
+.It 498 Invalid Token (Esri)
+Used by the Esri ArcGIS Server to indicate an expired
+or otherwise invalid token.
+.It 495 SSL Certificate Error (nginx)
+The client has provided an invalid client certificate.
+.It 496 496 SSL Certificate Required (nginx)
+A client certificate is required but was not provided.
+.It 497 HTTP Request Sent to HTTPS Port (nginx)
+The client has made an HTTP request to an HTTPS port.
+.It 499 Client Closed Request (nginx)
+The client has closed the request before the server
+could send a response.
+.It 499 Token Required (Esri)
+Used by the Esri ArcGIS Server to indicate that a
+token is required but was not submitted.
+.It 503 Loop Detected (Fastly)
+A request appears to originate from the same Fastly
+service that it is trying to invoke, or the request
+has transited too many Fastly servers.
+.It 509 Bandwidth Limit Exceeded (Apache httpd / cPanel)
+The server has exceeded the bandwidth specified
+by the server administrator.
+.It 520 Web Server Returned an Unknown Error (Cloudflare)
+The origin server returned an empty, unknown, or
+unexpected response to Cloudflare.
+.It 521 Web Server Is Down (Cloudflare)
+The origin server refused connections.
+.It 522 Connection Timed Out (Cloudflare)
+Time out when contacting the origin server.
+.It 523 Origin Is Unreachable (Cloudflare)
+The origin server was unreachable.
+.It 524 A Timeout Occurred (Cloudflare)
+After a successful TCP connection to the origin server
+the HTTP response timed out.
+.It 525 SSL Handshake Failed (Cloudflare)
+TLS handshake failure with the origin server.
+.It 526 Invalid SSL Certificate (Cloudflare / Cloud Foundry)
+Unable to validate the origin server's TLS certificate.
+.It 527 Railgun Error (Cloudflare)
+Connection interrupted between Cloudflare and the
+origin server's Railgun server.
+.It 529 Site is overloaded (Qualys SSLabs)
+API service is overloaded.
+.It 530 Internal Edgio Error (Edgio)
+An unexpected error.
+.It 530 (Cloudflare)
+Used by Cloudflare as a generic error status code.
+More details can be found in the accompanying HTML
+body describing a 1XXX error code.
+.It 530 Site is frozen (Pantheon)
+A site that has been frozen due to inactivity.
+.It 530 Origin DNS Error (Shopify)
+Cloudflare can't resolve the requested DNS record.
+.It 531 Project Upstream Connection Error (Edgio)
+Unable to establish a connection to the origin server.
+.It 532 Project Response Too Large (Edgio)
+A returned a response size was greater than the allowed maximum.
+.It 533 Project Upstream TLS Error (Edgio)
+Unable to establish a TLS connection to the origin.
+.It 534 Project Error (Edgio)
+The project’s serverless code has failed unexpectedly
+or has issued a malformed response.
+.It 535 Unknown Project (Edgio)
+Missing or mismatching Host header.
+.It 536 Project HTTP Response Timeout (Edgio)
+Time out when contacting the origin server.
+.It 537 Project DNS Resolution Error (Edgio)
+The proxy was unable to resolve the host name.
+.It 538 Project Request Loop (Edgio)
+The request went through too many Edgio servers.
+.It 539 Project Timeout (Edgio)
+The project's serverless code did not respond in time.
+.It 540 Temporarily Disabled (Shopify)
+The requested endpoint has been temporarily disabled.
+.It 540 Connectivity Disrupted (Akamai EAA)
+The connector does not have dial-out connections to
+either the data POP for the application or access to
+the directory.
+.It 540 Out of Memory (Edgio)
+The project's serverless code caused an out-of-memory
+situation.
+.It 541 Edgio Out of Workers (Edgio)
+Traffic was too high to be scheduled for processing
+within the scheduling timeout.
+.It 542 Internal Database Error (Akamai EAA)
+The data POP cannot reach the authentication database.
+.It 542 Project Header Overflow (Edgio)
+The project's request or response had too many HTTP
+headers.
+.It 543 IdP Communication Error (Akamai EAA)
+The data POP cannot reach the IdP or directory service.
+.It 543 Global Upstream Timeout (Edgio)
+The request failed to propagate between Edgio edge and
+the global POP.
+.It 544 Management Communication Error (Akamai EAA)
+The Login/Authentication POP cannot reach the
+management login manager.
+.It 544 Invalid Host Header (Edgio)
+The Host header is not a valid domain name.
+.It 545 Authentication Internal Error (Akamai EAA)
+The data POP cannot resolve/reach the authentication
+database.
+.It 545 Edgio Component Not Ready (Edgio)
+An unprepared Edgio component received traffic.
+.It 546 Unknown Application (Akamai EAA)
+The Login/Authentication POP does not have the
+application configuration.
+.It 546 Edgio Global POP TLS Error (Edgio)
+An error occurred negotiating a secure TLS connection
+with the Edgio global POP.
+.It 547 Edgio Global POP No HTTP Response (Edgio)
+No HTTP response from the global POP.
+.It 548 Invalid Response (Akamai EAA)
+The response received from the login server could not
+be validated via back-channel request from the cloud
+proxy to the login server.
+.It 548 Edgio Global POP DNS Resolution Error (Edgio)
+Failure to resolve the global POP's host name through
+the DNS.
+.It 549 Authentication Gateway Error (Akamai EAA)
+The Login service cannot reach directories to complete
+the authentication process.
+.It 552 Application Unreachable (Akamai EAA)
+The application service is not reachable from
+connector.
+.It 553 Directory Service Error (Akamai EAA)
+A directory service error during Kerberos
+authentication.
+.It 554 Authentication Token Error (Akamai EAA)
+The Kerberos token is not accepted by application.
+.It 555 Application does not support Kerberos (Akamai EAA)
+No negotiate option found in 401 challenge.
+.It 556 Unexpected Authentication Challenge (Akamai EAA)
+Encountered a 401 challenge on a URI not configured as
+login URI.
+.It 557 KDC Unreachable (Akamai EAA)
+The KDC is unreachable.
+.It 558 Connection Limit Stop: Service Concurrent Connections Exceeded (Akamai EAA)
+A user has established too many WebSocket connections.
+.It 559 Connection Limit Stop: Service Concurrent Connections Exceeded (Akamai EAA)
+A user has established too many WebSocket connections.
+.It 561 Invalid NTLM Challenge (Akamai EAA)
+The connector received an invalid NTLM challenge from
+server.
+.It 561 Unauthorized (AWS ELB)
+IdP could not authenticate the user.
+.It 562 Credential Error (Akamai EAA)
+Unable to encrypt or decrypt NTLM credentials.
+.It 598 Network Read Timeout Error
+Used by some HTTP proxies to signal a network read
+timeout behind the proxy to a client in front of the
+proxy.
+.It 599 Network Connect Timeout Error
+Used by some HTTP proxies to signal a network connect
+timeout behind the proxy to a client in front of the
+proxy.
+.It 600 (Akamai)
+Used by Akamai to indicate various invalid headers.
+.It 783 Unexpected Token (Shopify)
+The request includes a JSON syntax error.
+.It 893 (Edgio)
+Used by Edgio when load balancing high volume traffic
+for a specific asset within a POP.
+.El
 .Sh SEE ALSO
 RFC2324,
 RFC2518,
