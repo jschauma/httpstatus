@@ -14,7 +14,10 @@ status codes as derived from the various RFCs.
 
 If you're too lazy even to install the manual page,
 [here's a
-PDF](https://raw.githubusercontent.com/jschauma/httpstatus/main/httpstatus.7.pdf).
+PDF](https://raw.githubusercontent.com/jschauma/httpstatus/main/httpstatus.7.pdf)
+and a [plain
+text](https://raw.githubusercontent.com/jschauma/httpstatus/main/httpstatus.7.txt)
+version.
 
 ## Installation
 

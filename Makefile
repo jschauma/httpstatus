@@ -9,6 +9,7 @@ help:
 	@echo "install-all  install the 'httpstatus.7' manual page into ${PREFIX},"
 	@echo "             then symlink each http status code so that you can run"
 	@echo "             e.g., 'man http:404'."
+	@echo "txt          generate a text version of the manual page"
 
 install:
 	mkdir -p ${PREFIX}/share/man/man7/
@@ -18,3 +19,8 @@ install-all: install
 	for c in $$(awk '/^.It [0-9][0-9]/ { print $$2 }' httpstatus.7); do	\
 		ln -s ${NAME}.7 ${PREFIX}/share/man/man7/http:$$c.7;	\
 	done
+
+txt: ${NAME}.7.txt
+
+${NAME}.7.txt: ${NAME}.7
+	nroff -man $? | col -b >$@
