@@ -359,6 +359,9 @@ NON STANDARD HTTP STATUS CODES
 	 The client closed the connection with the load balancer before the
 	 idle timeout period elapsed.
 
+     462 Not Allowed (Fastly)
+	 The clients IP was blocked.
+
      463 (AWS ELB)
 	 The load balancer received an XForwardedFor request header with too
 	 many IP addresses.
@@ -606,4 +609,4 @@ HISTORY
      This list of HTTP status codes was originally compiled into a manual page
      by Jan Schaumann jschauma@netmeister.org in July 2021.
 
-NetBSD 9.3		       December 12, 2023		    NetBSD 9.3
+NetBSD 9.3		       December 13, 2023		    NetBSD 9.3

@@ -15,7 +15,7 @@
 .\" the internet.
 .\"
 .\" Jan Schaumann <jschauma@netmeister.org>, July 2021
-.Dd December 12, 2023
+.Dd December 13, 2023
 .Dt httpstatus 7
 .Os
 .Sh NAME
@@ -372,6 +372,8 @@ to reach the user's mailbox
 .It 460 (AWS ELB)
 The client closed the connection with the load balancer
 before the idle timeout period elapsed.
+.It 462 Not Allowed (Fastly)
+The client's IP was blocked.
 .It 463 (AWS ELB)
 The load balancer received an X-Forwarded-For request
 header with too many IP addresses.
