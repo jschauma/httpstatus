@@ -566,11 +566,11 @@ NON STANDARD HTTP STATUS CODES
 
      558 Connection Limit Stop: Service Concurrent Connections Exceeded
 	 (Akamai EAA)
-	 A user has established too many WebSocket connections.
+	 Too many concurrent connections.
 
      559 Connection Limit Stop: Service Concurrent Connections Exceeded
 	 (Akamai EAA)
-	 A user has established too many WebSocket connections.
+	 Too many requests per second.
 
      561 Invalid NTLM Challenge (Akamai EAA)
 	 The connector received an invalid NTLM challenge from server.
@@ -609,4 +609,4 @@ HISTORY
      This list of HTTP status codes was originally compiled into a manual page
      by Jan Schaumann jschauma@netmeister.org in July 2021.
 
-NetBSD 9.3		       December 13, 2023		    NetBSD 9.3
+NetBSD 9.3		       December 14, 2023		    NetBSD 9.3
