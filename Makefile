@@ -24,7 +24,7 @@ install-all: install
 txt: ${NAME}.7.txt
 
 ${NAME}.7.txt: ${NAME}.7
-	nroff -man $? | col -b >$@
+	groff -Tascii -mandoc $? | col -b >$@
 
 pdf: ${NAME}.7.pdf
 
